@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DiceRoller.View.DiceView"
+             Title="DiceView">
+    <VerticalStackLayout>
+        <Label 
+            Text="Rolador de dados"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+            FontSize="30"
+            FontAttributes="Bold"/>
+
+        <Label
+            x:Name="Result"
+            Text="{Binding Resultado}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            FontSize="50"
+            />
+
+        <Picker 
+            x:Name="Lados"
+            Title="Quantidade de lados" SelectedItem = "{Binding NumeroSelec}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            FontSize="25"
+            Margin="20"
+            >
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:Int32}">
+                    <x:Int32>4</x:Int32>
+                    <x:Int32>6</x:Int32>
+                    <x:Int32>10</x:Int32>
+                    <x:Int32>20</x:Int32>
+                    <x:Int32>100</x:Int32>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <Button
+            x:Name="Rolar"
+            Text="ROLAR O DADO"
+            Command="{Binding RollCommand}"
+            BackgroundColor="Black"
+            />
+    </VerticalStackLayout>
+</ContentPage>
